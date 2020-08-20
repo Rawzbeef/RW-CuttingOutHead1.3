@@ -65,7 +65,7 @@
     <defName>Shell_Head</defName>
     <thingClass>ThingWithComps</thingClass>
     <label>head shell</label>
-    <description>A shell attached with head. Head shell don't gives physical damage, but makes victim mental break. Can be fired from mortars.</description>
+    <description>A shell attached with head. Head shell don't gives physical damage and has low accuracy, but makes victim mental break. Can be fired from mortars.</description>
     <graphicData>
       <graphicClass>RWBeheading.Graphic_Head</graphicClass>
       <texPath>Things/HeadDummy</texPath>
@@ -73,17 +73,18 @@
     <statBases>
       <MarketValue>30</MarketValue>
     </statBases>
+    <workAmount>800</workAmount>
     <tradeability>None</tradeability>
     <stackLimit>1</stackLimit>
     <comps>
       <li Class="CompProperties_Explosive">
-        <explosiveRadius>3</explosiveRadius>
-        <explosiveDamageType>Blooded</explosiveDamageType>
+        <explosiveRadius>2</explosiveRadius>
+        <explosiveDamageType>Panic</explosiveDamageType>
         <explosiveExpandPerStackcount>0</explosiveExpandPerStackcount>
         <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
         <postExplosionSpawnThingDef>Filth_Blood</postExplosionSpawnThingDef>
         <postExplosionSpawnChance>1</postExplosionSpawnChance>
-        <postExplosionSpawnThingCount>8</postExplosionSpawnThingCount>
+        <postExplosionSpawnThingCount>3</postExplosionSpawnThingCount>
         <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
         <explosionEffect>ExtinguisherExplosion</explosionEffect>
         <wickTicks>30~60</wickTicks>
@@ -101,17 +102,75 @@
     </graphicData>
     <thingClass>RWBeheading.Projectile_Head</thingClass>
     <projectile>
-      <damageDef>Blooded</damageDef>
+      <damageDef>Panic</damageDef>
       <speed>20</speed>
-      <explosionRadius>3</explosionRadius>
+      <explosionRadius>2</explosionRadius>
       <flyOverhead>true</flyOverhead>
       <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
-      <soundExplode>Explosion_EMP</soundExplode>
+      <soundExplode>Explosion_Smoke</soundExplode>
       <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
       <soundAmbient>MortarRound_Ambient</soundAmbient>
       <postExplosionSpawnThingDef>Filth_Blood</postExplosionSpawnThingDef>
       <postExplosionSpawnChance>1</postExplosionSpawnChance>
-      <postExplosionSpawnThingCount>8</postExplosionSpawnThingCount>
+      <postExplosionSpawnThingCount>3</postExplosionSpawnThingCount>
+      <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      <explosionEffect>ExtinguisherExplosion</explosionEffect>
+    </projectile>
+  </ThingDef>
+  
+  <!-- Powerful Shell Head -->
+  <ThingDef ParentName="ShellBase">
+    <defName>Powerful_Shell_Head</defName>
+    <thingClass>ThingWithComps</thingClass>
+    <label>powerful head shell</label>
+    <description>A shell attached with head. Head shell don't gives physical damage and has low accuracy, but makes victim mental break. Can be fired from mortars.</description>
+    <graphicData>
+      <graphicClass>RWBeheading.Graphic_Head</graphicClass>
+      <texPath>Things/HeadDummy</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>1200</MarketValue>
+    </statBases>
+    <workAmount>800</workAmount>
+    <tradeability>None</tradeability>
+    <stackLimit>1</stackLimit>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>10.5</explosiveRadius>
+        <explosiveDamageType>Panic</explosiveDamageType>
+        <explosiveExpandPerStackcount>0</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <postExplosionSpawnThingDef>Filth_Blood</postExplosionSpawnThingDef>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>3</postExplosionSpawnThingCount>
+        <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+        <explosionEffect>ExtinguisherExplosion</explosionEffect>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <projectileWhenLoaded>Bullet_Powerful_Shell_Head</projectileWhenLoaded>
+  </ThingDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_Powerful_Shell_Head</defName>
+    <label>powerful head shell</label>
+    <graphicData>
+      <graphicClass>RWBeheading.Graphic_Head</graphicClass>
+      <texPath>Things/HeadDummy</texPath>
+    </graphicData>
+    <thingClass>RWBeheading.Projectile_Head</thingClass>
+    <projectile>
+      <damageDef>Panic</damageDef>
+      <speed>30</speed>
+      <explosionRadius>10.5</explosionRadius>
+      <flyOverhead>true</flyOverhead>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundExplode>Explosion_Smoke</soundExplode>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+      <postExplosionSpawnThingDef>Filth_Blood</postExplosionSpawnThingDef>
+      <postExplosionSpawnChance>1</postExplosionSpawnChance>
+      <postExplosionSpawnThingCount>3</postExplosionSpawnThingCount>
       <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
       <explosionEffect>ExtinguisherExplosion</explosionEffect>
     </projectile>

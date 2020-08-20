@@ -4,5 +4,8 @@
 <HeadStake.description>누군가의 머리가 달린 끔찍한 말뚝. 지나가는 사람들에게 공포를 줍니다.</HeadStake.description>
 
 <Shell_Head.label>머리 포탄</Shell_Head.label>
-<Shell_Head.description>인간의 머리로 만들어진 포탄. 물리적인 피해를 입히지는 않지만 정신을 무너뜨립니다. 박격포에서 발사할 수 있습니다.</Shell_Head.description>
+<Shell_Head.description>인간의 머리로 만들어진 포탄. 물리적인 피해를 입히지 않고 맞추기 어렵지만 정신을 무너뜨립니다. 박격포에서 발사할 수 있습니다.</Shell_Head.description>
+
+<Powerful_Shell_Head.label>강화된 머리 포탄</Powerful_Shell_Head.label>
+<Powerful_Shell_Head.description>인간의 머리와 반물질탄을 결합해 만들어진 포탄. 물리적인 피해를 입히지 않지만 정신을 무너뜨립니다. 박격포에서 발사할 수 있습니다.</Powerful_Shell_Head.description>
 </LanguageData>

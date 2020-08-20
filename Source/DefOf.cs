@@ -15,7 +15,5 @@ namespace RWBeheading
         public static ThingCategoryDef HeadsHumanlike;
 
         public static ThoughtDef BH_Fearful;
-
-        public static RecipeDef Make_Head_Shell;
     }
 }

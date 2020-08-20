@@ -6,7 +6,7 @@
     <description>Remove head.</description>
     <workerClass>RWBeheading.Recipe_RemoveHead</workerClass>
     <jobString>Removing head.</jobString>
-    <workAmount>100</workAmount>
+    <workAmount>500</workAmount>
     <surgerySuccessChanceFactor>10</surgerySuccessChanceFactor>
     <ingredients>
       <li>
@@ -54,6 +54,56 @@
     </ingredients>
     <products>
       <Shell_Head>1</Shell_Head>
+    </products>
+    <fixedIngredientFilter>
+      <categories>
+        <li>HeadsHumanlike</li>
+      </categories>
+    </fixedIngredientFilter>
+    <defaultIngredientFilter>
+      <categories>
+        <li>HeadsHumanlike</li>
+      </categories>
+    </defaultIngredientFilter>
+    <workSkill>Crafting</workSkill>
+    <skillRequirements>
+      <Crafting>4</Crafting>
+    </skillRequirements>
+    <researchPrerequisite>Mortars</researchPrerequisite>
+    <recipeUsers>
+        <li>TableMachining</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>Make_Powerful_Head_Shell</defName>
+    <label>make powerful head shell</label>
+    <description>Make powerful shell by combining head and antigrain warhead.</description>
+    <jobString>Making Powerful Head Shell.</jobString>
+    <workAmount>1000</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cremate</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>HeadsHumanlike</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Shell_AntigrainWarhead</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <Powerful_Shell_Head>1</Powerful_Shell_Head>
     </products>
     <fixedIngredientFilter>
       <categories>
