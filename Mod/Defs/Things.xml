@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- Head Stake -->
+  <ThingDef ParentName="BuildingBase">
+    <defName>HeadStake</defName>
+    <label>head stake</label>
+    <description>A horrible someone's head on a stake. Make near persons fearful.</description>
+    <thingClass>RWBeheading.Building_Headstake</thingClass>
+    <graphicData>
+      <texPath>Things/Headstake</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2,2)</drawSize>
+    </graphicData>
+    <stuffCategories>
+      <li>Woody</li>
+    </stuffCategories>
+    <costStuffCount>30</costStuffCount>
+    <statBases>
+      <MaxHitPoints>70</MaxHitPoints>
+      <WorkToBuild>40</WorkToBuild>
+      <Flammability>1.0</Flammability>
+      <Beauty>-50</Beauty>
+    </statBases>
+    <altitudeLayer>Building</altitudeLayer>
+    <rotatable>false</rotatable>
+    <size>(1,2)</size>
+    <tickerType>Rare</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <designationCategory>Misc</designationCategory>
+    <passability>PassThroughOnly</passability>
+    <building>
+      <expandHomeArea>false</expandHomeArea>
+      <haulToContainerDuration>300</haulToContainerDuration>
+      <fixedStorageSettings>
+        <filter>
+          <categories>
+            <li>HeadsHumanlike</li>
+          </categories>
+        </filter>
+      </fixedStorageSettings>
+      <defaultStorageSettings>
+        <priority>Important</priority>
+        <filter>
+          <categories>
+            <li>HeadsHumanlike</li>
+          </categories>
+        </filter>
+      </defaultStorageSettings>
+    </building>
+    <inspectorTabs>
+      <li>ITab_Storage</li>
+    </inspectorTabs>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <comps>
+      <li Class="RWBeheading.CompProperties_HeadAssignable">
+        <compClass>RWBeheading.CompHeadAssignable</compClass>
+      </li>
+    </comps>
+    <placeWorkers>
+    </placeWorkers>
+  </ThingDef>
+  
+  <!-- Shell Head -->
+  <ThingDef ParentName="ShellBase">
+    <defName>Shell_Head</defName>
+    <thingClass>ThingWithComps</thingClass>
+    <label>head shell</label>
+    <description>A shell attached with head. Head shell don't gives physical damage, but makes victim mental break. Can be fired from mortars.</description>
+    <graphicData>
+      <graphicClass>RWBeheading.Graphic_Head</graphicClass>
+      <texPath>Things/HeadDummy</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>30</MarketValue>
+    </statBases>
+    <tradeability>None</tradeability>
+    <stackLimit>1</stackLimit>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>3</explosiveRadius>
+        <explosiveDamageType>Blooded</explosiveDamageType>
+        <explosiveExpandPerStackcount>0</explosiveExpandPerStackcount>
+        <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+        <postExplosionSpawnThingDef>Filth_Blood</postExplosionSpawnThingDef>
+        <postExplosionSpawnChance>1</postExplosionSpawnChance>
+        <postExplosionSpawnThingCount>8</postExplosionSpawnThingCount>
+        <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+        <explosionEffect>ExtinguisherExplosion</explosionEffect>
+        <wickTicks>30~60</wickTicks>
+      </li>
+    </comps>
+    <projectileWhenLoaded>Bullet_Shell_Head</projectileWhenLoaded>
+  </ThingDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_Shell_Head</defName>
+    <label>head shell</label>
+    <graphicData>
+      <graphicClass>RWBeheading.Graphic_Head</graphicClass>
+      <texPath>Things/HeadDummy</texPath>
+    </graphicData>
+    <thingClass>RWBeheading.Projectile_Head</thingClass>
+    <projectile>
+      <damageDef>Blooded</damageDef>
+      <speed>20</speed>
+      <explosionRadius>3</explosionRadius>
+      <flyOverhead>true</flyOverhead>
+      <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+      <soundExplode>Explosion_EMP</soundExplode>
+      <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+      <soundAmbient>MortarRound_Ambient</soundAmbient>
+      <postExplosionSpawnThingDef>Filth_Blood</postExplosionSpawnThingDef>
+      <postExplosionSpawnChance>1</postExplosionSpawnChance>
+      <postExplosionSpawnThingCount>8</postExplosionSpawnThingCount>
+      <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+      <explosionEffect>ExtinguisherExplosion</explosionEffect>
+    </projectile>
+  </ThingDef>
+</Defs>

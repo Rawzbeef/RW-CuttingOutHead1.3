@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+<HeadStake.label>머리 말뚝</HeadStake.label>
+<HeadStake.description>누군가의 머리가 달린 끔찍한 말뚝. 지나가는 사람들에게 공포를 줍니다.</HeadStake.description>
+
+<Shell_Head.label>머리 포탄</Shell_Head.label>
+<Shell_Head.description>인간의 머리로 만들어진 포탄. 물리적인 피해를 입히지는 않지만 정신을 무너뜨립니다. 박격포에서 발사할 수 있습니다.</Shell_Head.description>
+</LanguageData>

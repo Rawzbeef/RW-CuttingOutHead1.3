@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RWBeheading", "RWBeheading.csproj", "{0D88D362-2CB3-4BC6-9F95-26DCF4FB917A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Build_dev|Any CPU = Build_dev|Any CPU
+		Build|Any CPU = Build|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D88D362-2CB3-4BC6-9F95-26DCF4FB917A}.Build_dev|Any CPU.ActiveCfg = Build_dev|Any CPU
+		{0D88D362-2CB3-4BC6-9F95-26DCF4FB917A}.Build_dev|Any CPU.Build.0 = Build_dev|Any CPU
+		{0D88D362-2CB3-4BC6-9F95-26DCF4FB917A}.Build|Any CPU.ActiveCfg = Build|Any CPU
+		{0D88D362-2CB3-4BC6-9F95-26DCF4FB917A}.Build|Any CPU.Build.0 = Build|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF5C12CB-051B-4BE7-A80D-ACF9B5FA5211}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <BH_HeadLabel>{0} head</BH_HeadLabel>
+    <BH_HeadDesc>Beheaded head of {0}.</BH_HeadDesc>
+    <BH_HeadstakeInspect>Owner of head : {0}</BH_HeadstakeInspect>
+</LanguageData>

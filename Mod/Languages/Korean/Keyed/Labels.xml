@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+    <BH_HeadLabel>{0} 머리</BH_HeadLabel>
+    <BH_HeadDesc>{0}의 잘린 머리.</BH_HeadDesc>
+    <BH_HeadstakeInspect>머리 주인 : {0}</BH_HeadstakeInspect>
+</LanguageData>
