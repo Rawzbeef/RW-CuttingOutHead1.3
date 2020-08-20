@@ -83,7 +83,7 @@
         <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
         <postExplosionSpawnThingDef>Filth_Blood</postExplosionSpawnThingDef>
         <postExplosionSpawnChance>1</postExplosionSpawnChance>
-        <postExplosionSpawnThingCount>3</postExplosionSpawnThingCount>
+        <postExplosionSpawnThingCount>4</postExplosionSpawnThingCount>
         <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
         <explosionEffect>ExtinguisherExplosion</explosionEffect>
         <wickTicks>30~60</wickTicks>
@@ -111,7 +111,7 @@
       <soundAmbient>MortarRound_Ambient</soundAmbient>
       <postExplosionSpawnThingDef>Filth_Blood</postExplosionSpawnThingDef>
       <postExplosionSpawnChance>1</postExplosionSpawnChance>
-      <postExplosionSpawnThingCount>3</postExplosionSpawnThingCount>
+      <postExplosionSpawnThingCount>4</postExplosionSpawnThingCount>
       <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
       <explosionEffect>ExtinguisherExplosion</explosionEffect>
     </projectile>
@@ -134,13 +134,13 @@
     <stackLimit>1</stackLimit>
     <comps>
       <li Class="CompProperties_Explosive">
-        <explosiveRadius>10.5</explosiveRadius>
+        <explosiveRadius>9</explosiveRadius>
         <explosiveDamageType>Panic</explosiveDamageType>
         <explosiveExpandPerStackcount>0</explosiveExpandPerStackcount>
         <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
         <postExplosionSpawnThingDef>Filth_Blood</postExplosionSpawnThingDef>
         <postExplosionSpawnChance>1</postExplosionSpawnChance>
-        <postExplosionSpawnThingCount>3</postExplosionSpawnThingCount>
+        <postExplosionSpawnThingCount>2</postExplosionSpawnThingCount>
         <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
         <explosionEffect>ExtinguisherExplosion</explosionEffect>
         <wickTicks>30~60</wickTicks>
@@ -160,7 +160,7 @@
     <projectile>
       <damageDef>Panic</damageDef>
       <speed>30</speed>
-      <explosionRadius>10.5</explosionRadius>
+      <explosionRadius>9</explosionRadius>
       <flyOverhead>true</flyOverhead>
       <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
       <soundExplode>Explosion_Smoke</soundExplode>
@@ -168,7 +168,7 @@
       <soundAmbient>MortarRound_Ambient</soundAmbient>
       <postExplosionSpawnThingDef>Filth_Blood</postExplosionSpawnThingDef>
       <postExplosionSpawnChance>1</postExplosionSpawnChance>
-      <postExplosionSpawnThingCount>3</postExplosionSpawnThingCount>
+      <postExplosionSpawnThingCount>2</postExplosionSpawnThingCount>
       <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
       <explosionEffect>ExtinguisherExplosion</explosionEffect>
     </projectile>
