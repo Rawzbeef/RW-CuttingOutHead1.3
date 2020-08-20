@@ -11,6 +11,8 @@ namespace RWBeheading
     {
         public override void ExposeData()
         {
+            base.ExposeData();
+
             Scribe_Deep.Look(ref _headData, "headData");
         }
 
