@@ -54,45 +54,36 @@ namespace RWBeheading
             harmony.Patch(AccessTools.Method(typeof(Projectile), "Launch", new Type[] { typeof(Thing), typeof(Vector3), typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(ProjectileHitFlags), typeof(Thing), typeof(ThingDef) }),
                 prefix: new HarmonyMethod(typeof(HarmonyPatches), nameof(Projectile_Launch_Prefix)));
 
-            Log.Message("[Beheading] Harmony patch succeeded.");
+            Log.Message("[Beheading] Harmony patches are succeeded.");
         }
 
         private static FieldInfo fieldThingGraphicInt = AccessTools.Field(typeof(Thing), "graphicInt");
 
         private static bool Hediff_MissingPart_PostAdd_Prefix(ref DamageInfo dinfo, Pawn ___pawn, Hediff_MissingPart __instance)
         {
-            if (!___pawn.RaceProps.Humanlike)
-            {
-                return true;
-            }
-
             if (Current.ProgramState != ProgramState.Playing || PawnGenerator.IsBeingGenerated(___pawn))
             {
                 return true;
             }
 
-            if (___pawn.RaceProps.FleshType != FleshTypeDefOf.Normal)
+            if (!___pawn.RaceProps.Humanlike)
             {
+                CustomLogger.Dev("Generate head thing fail, not humanlike : {0} {1}", ___pawn.Name, ___pawn.def.defName);
                 return true;
             }
             
-            if (dinfo.Def == null)
+            if (dinfo.Def == null || dinfo.Def == DamageDefOf.Bomb)
             {
+                CustomLogger.Dev("Generate head thing: {0} {1}, dinfo not adapt", ___pawn.Name, ___pawn.def.defName);
                 return true;
             }
-
-            /*
-            if (dinfo.Def.defName != DamageDefOf.SurgicalCut.defName && dinfo.Def.defName != DamageDefOf.Cut.defName)
-            {
-                return true;
-            }
-            */
 
             if (__instance.Part.def == BodyPartDefOf.Head)
             {
-                BeheadedHead head = (BeheadedHead)ThingMaker.MakeThing(ThingDefGenerator_BeheadedHead.GetGeneratedDef(___pawn.def));
+                HumanlikeHead head = (HumanlikeHead)ThingMaker.MakeThing(ThingDefGenerator_BeheadedHead.GetGeneratedDef(___pawn.def));
                 head.Init(___pawn);
-
+                
+                CustomLogger.Dev("Generate head thing: {0} {1}", ___pawn.Name, ___pawn.def.defName);
                 GenPlace.TryPlaceThing(head, ___pawn.PositionHeld, ___pawn.MapHeld, ThingPlaceMode.Near, rot: Rot4.South);
             }
 
@@ -170,7 +161,7 @@ namespace RWBeheading
 
             if (!patch)
             {
-                Log.Warning("[Beheading] Try to patch GenRecipe_MakeRecipeProducts, but there is something problem.");
+                CustomLogger.NeedCheck("Try to patch GenRecipe_MakeRecipeProducts, but there is something problem.");
             }
 
             return instructions;
@@ -178,18 +169,19 @@ namespace RWBeheading
 
         private static void GenRecipe_MakeRecipeProducts_Injection(RecipeDef recipeDef, List<Thing> ingredients, Thing thing)
         {
-            if (!ingredients.Any(x => x is BeheadedHead))
+            IHeadDataContainer dest = thing as IHeadDataContainer;
+            if (dest == null)
             {
                 return;
             }
 
-            BeheadedHead head = ingredients.Where(x => x is BeheadedHead).First() as BeheadedHead;
-            Graphic_Head headGraphic = thing.Graphic as Graphic_Head;
-
-            if (headGraphic != null)
+            IHeadDataContainer src = ingredients.First(x => x is IHeadDataContainer) as IHeadDataContainer;
+            if (src == null)
             {
-                headGraphic.CopyFrom((Graphic_Head)head.Graphic);
+                return;
             }
+
+            dest.SetHeadData(src.GetInnerHeadData());
         }
         #endregion
 
@@ -255,13 +247,13 @@ namespace RWBeheading
 
         private static void JobDriver_ManTurret_MakeNewToils_ImplicitInitAction_Injection(Building_TurretGun gun, Pawn actor)
         {
-            Graphic_Head headGraphic = actor.CurJob.targetB.Thing.Graphic as Graphic_Head;
-            if (headGraphic != null)
+            var src = actor.CurJob.targetB.Thing as IHeadDataContainer;
+            if (src != null)
             {
-                CompHeadGraphicContainer comp = gun.TryGetComp<CompHeadGraphicContainer>();
+                CompHeadDataContainer comp = gun.TryGetComp<CompHeadDataContainer>();
                 if (comp != null)
                 {
-                    comp.Push(headGraphic);
+                    comp.SetHeadData(src.GetInnerHeadData());
                 }
             }
         }
@@ -269,29 +261,32 @@ namespace RWBeheading
 
         private static void CompChangeableProjectile_RemoveShell_Postfix(CompChangeableProjectile __instance, Thing __result)
         {
-            Graphic_Head headGraphic = __result.Graphic as Graphic_Head;
-            if (headGraphic != null)
+            IHeadDataContainer dest = __result as IHeadDataContainer;
+            if (dest != null)
             {
-                var compHeadContainer = __instance.parent.TryGetComp<CompHeadGraphicContainer>();
+                var compHeadContainer = __instance.parent.TryGetComp<CompHeadDataContainer>();
                 if (compHeadContainer != null)
                 {
-                    headGraphic.CopyFrom(compHeadContainer.Pop());
+                    dest.SetHeadData(compHeadContainer.GetInnerHeadData());
+                    compHeadContainer.SetHeadData(null);
                 }
             }
         }
 
         private static bool Projectile_Launch_Prefix(Thing __instance, Thing launcher, Thing equipment)
         {
-            Graphic_Head headGraphic = __instance.Graphic as Graphic_Head;
-            if (headGraphic != null && equipment != null)
+            IHeadDataContainer dest = __instance as IHeadDataContainer;
+
+            if (dest != null && equipment != null)
             {
                 Building_TurretGun turret = equipment as Building_TurretGun;
                 if (turret != null)
                 {
-                    CompHeadGraphicContainer comp = turret.gun.TryGetComp<CompHeadGraphicContainer>();
-                    if (comp != null && comp.CurrentHeadGraphic != null)
+                    CompHeadDataContainer comp = turret.gun.TryGetComp<CompHeadDataContainer>();
+                    if (comp != null && comp.GetInnerHeadData() != null)
                     {
-                        headGraphic.CopyFrom(comp.Pop());
+                        dest.SetHeadData(comp.GetInnerHeadData());
+                        comp.SetHeadData(null);
                     }
                 }
             }

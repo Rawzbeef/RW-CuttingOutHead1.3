@@ -11,7 +11,7 @@ namespace RWBeheading
     {
         public override bool Matches(Thing t)
         {
-            BeheadedHead head = t as BeheadedHead;
+            HumanlikeHead head = t as HumanlikeHead;
             if (head == null)
             {
                 return false;
@@ -25,7 +25,7 @@ namespace RWBeheading
     {
         public override bool Matches(Thing t)
         {
-            BeheadedHead head = t as BeheadedHead;
+            HumanlikeHead head = t as HumanlikeHead;
             if (head == null)
             {
                 return false;

@@ -10,18 +10,18 @@ using HarmonyLib;
 
 namespace RWBeheading
 {
-    public class Building_Headstake : Building_Casket, IStoreSettingsParent, IHaulDestination, IThoughtGiver
+    public class Building_Headstake : Building_Casket, IStoreSettingsParent, IHaulDestination, IThoughtGiver, IHeadDataContainer
     {
         private StorageSettings storageSettings;
         public bool HasFull => Head != null;
 
-        public BeheadedHead Head
+        public HumanlikeHead Head
         {
             get
             {
                 for (int i = 0; i < innerContainer.Count; i++)
                 {
-                    BeheadedHead head = innerContainer[i] as BeheadedHead;
+                    HumanlikeHead head = innerContainer[i] as HumanlikeHead;
                     if (head != null)
                     {
                         return head;
@@ -112,7 +112,7 @@ namespace RWBeheading
                 return false;
             }
 
-            BeheadedHead head = thing as BeheadedHead;
+            HumanlikeHead head = thing as HumanlikeHead;
             if (head == null)
             {
                 return false;
@@ -129,7 +129,7 @@ namespace RWBeheading
         {
             if (base.TryAcceptThing(thing, allowSpecialEffects))
             {
-                BeheadedHead head = thing as BeheadedHead;
+                HumanlikeHead head = thing as HumanlikeHead;
 
                 if (base.Spawned)
                 {
@@ -151,6 +151,21 @@ namespace RWBeheading
             }
 
             return stringBuilder.ToString();
+        }
+
+        public HumanlikeHeadData GetInnerHeadData()
+        {
+            if (Head != null)
+            {
+                return Head.GetInnerHeadData();
+            }
+
+            return null;
+        }
+
+        public void SetHeadData(HumanlikeHeadData data)
+        {
+            CustomLogger.Error("[Beheading] Can't set head data to this.", 153487312);
         }
     }
 }

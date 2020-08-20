@@ -61,21 +61,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base64Texture.cs" />
-    <Compile Include="BeheadedHead.cs" />
-    <Compile Include="Building_Headstake.cs" />
-    <Compile Include="CompHeadGraphicContainer.cs" />
-    <Compile Include="CompProperties_HeadAssignable.cs" />
-    <Compile Include="CompHeadAssignable.cs" />
-    <Compile Include="CompProperties_HeadContainer.cs" />
+    <Compile Include="CustomLogger.cs" />
+    <Compile Include="HeadShell\HeadShell.cs" />
+    <Compile Include="IHeadDataContainer.cs" />
+    <Compile Include="Internal\Base64Texture.cs" />
+    <Compile Include="HumanlikeHead.cs" />
+    <Compile Include="Headstake\Building_Headstake.cs" />
+    <Compile Include="HeadShell\CompHeadDataContainer.cs" />
+    <Compile Include="Headstake\CompProperties_HeadAssignable.cs" />
+    <Compile Include="Headstake\CompHeadAssignable.cs" />
+    <Compile Include="HeadShell\CompProperties_HeadDataContainer.cs" />
     <Compile Include="DefOf.cs" />
     <Compile Include="Graphic_Head.cs" />
     <Compile Include="HarmonyPatches.cs" />
-    <Compile Include="HeadGraphicData.cs" />
-    <Compile Include="DamageWorker_MentalBreak.cs" />
+    <Compile Include="Internal\HumanlikeHeadData.cs" />
+    <Compile Include="HeadShell\DamageWorker_MentalBreak.cs" />
     <Compile Include="HeadRenderer\HeadCameraManager.cs" />
     <Compile Include="HeadRenderer\HeadRenderer.cs" />
-    <Compile Include="Projectile_Head.cs" />
+    <Compile Include="HeadShell\Projectile_Head.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recipe_RemoveHead.cs" />
     <Compile Include="SpecialThingFilterWorkers.cs" />

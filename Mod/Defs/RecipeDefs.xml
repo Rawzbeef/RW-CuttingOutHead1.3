@@ -30,7 +30,7 @@
     <label>make head shell</label>
     <description>Make shell by combining head and fuels.</description>
     <jobString>Making Head Shell.</jobString>
-    <workAmount>1000</workAmount>
+    <workAmount>800</workAmount>
     <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
     <effectWorking>Cremate</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
@@ -51,6 +51,14 @@
         </filter>
         <count>20</count>
       </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Neutroamine</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
     </ingredients>
     <products>
       <Shell_Head>1</Shell_Head>
@@ -59,6 +67,9 @@
       <categories>
         <li>HeadsHumanlike</li>
       </categories>
+      <specialFiltersToDisallow>
+        <li>AllowRotten</li>
+      </specialFiltersToDisallow>
     </fixedIngredientFilter>
     <defaultIngredientFilter>
       <categories>
@@ -80,7 +91,7 @@
     <label>make powerful head shell</label>
     <description>Make powerful shell by combining head and antigrain warhead.</description>
     <jobString>Making Powerful Head Shell.</jobString>
-    <workAmount>1000</workAmount>
+    <workAmount>800</workAmount>
     <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
     <effectWorking>Cremate</effectWorking>
     <soundWorking>Recipe_Machining</soundWorking>
@@ -100,6 +111,14 @@
           </thingDefs>
         </filter>
         <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Neutroamine</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
       </li>
     </ingredients>
     <products>

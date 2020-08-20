@@ -9,11 +9,11 @@ using RimWorld;
 
 namespace RWBeheading
 {
-    public class CompProperties_HeadContainer : CompProperties
+    public class CompProperties_HeadDataContainer : CompProperties
     {
-        public CompProperties_HeadContainer()
+        public CompProperties_HeadDataContainer()
         {
-            compClass = typeof(CompHeadGraphicContainer);
+            compClass = typeof(CompHeadDataContainer);
         }
     }
 }

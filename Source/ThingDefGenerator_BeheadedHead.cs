@@ -47,7 +47,10 @@ namespace RWBeheading
 
                     ThingDef thingDef = new ThingDef();
                     thingDef.category = ThingCategory.Item;
-                    thingDef.thingClass = typeof(BeheadedHead);
+                    thingDef.thingClass = typeof(HumanlikeHead);
+                    thingDef.graphicData = new GraphicData();
+                    thingDef.graphicData.texPath = "Things/HeadDummy";
+                    thingDef.graphicData.graphicClass = typeof(Graphic_Head);
                     thingDef.selectable = true;
                     thingDef.rotatable = true;
                     thingDef.tickerType = TickerType.Rare;

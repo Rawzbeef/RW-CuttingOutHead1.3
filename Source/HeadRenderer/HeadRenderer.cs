@@ -12,7 +12,7 @@ namespace RWBeheading
         {
             if (!UnityData.IsInMainThread)
             {
-                Log.Error("Tried to get a material from a different thread.");
+                CustomLogger.NeedCheck("Tried to render a head material from a different thread.");
                 return;
             }
 
@@ -22,7 +22,7 @@ namespace RWBeheading
 
             float orthographicSize = cam.orthographicSize;
             cam.transform.position += new Vector3(0f, 0f, 0.3f);
-            cam.orthographicSize = 0.5f;
+            cam.orthographicSize = 0.6f;
 
             this.pawn = pawn;
             this.drawMode = rotDrawMode;
@@ -60,7 +60,7 @@ namespace RWBeheading
             catch (Exception e)
             {
 #if DEBUG
-                Log.Error(e.ToString());
+                CustomLogger.ExceptionHandle(e);
 #endif
             }
         }

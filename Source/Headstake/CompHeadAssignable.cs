@@ -25,7 +25,7 @@ namespace RWBeheading
                 Vector3 v = HeadStake.DrawPos;
                 v.y = AltitudeLayer.BuildingOnTop.AltitudeFor();
                 v.z += HeadStakeZOffset;
-                HeadStake.Head.Graphic.DrawWorker(v, Rot4.South, null, null, _uniqueRotation);
+                HeadStake.Head.Graphic.DrawWorker(v, Rot4.South, null, parent, _uniqueRotation);
             }
         }
 
