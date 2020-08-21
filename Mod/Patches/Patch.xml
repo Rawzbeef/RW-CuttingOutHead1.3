@@ -14,4 +14,26 @@
 </value>
 </Operation>
 
+<Operation Class="PatchOperationAdd">
+<xpath>Defs/RecipeDef[defName="CremateCorpse"]/ingredients/li/filter/categories</xpath>
+<value>
+	<li>HeadsHumanlike</li>
+</value>
+</Operation>
+
+<Operation Class="PatchOperationAdd">
+<xpath>Defs/RecipeDef[defName="CremateCorpse"]/fixedIngredientFilter/categories</xpath>
+<value>
+	<li>HeadsHumanlike</li>
+</value>
+</Operation>
+
+<Operation Class="PatchOperationAdd">
+<xpath>Defs/RecipeDef[defName="CremateCorpse"]/defaultIngredientFilter/specialFiltersToAllow</xpath>
+<value>
+	<li>AllowHeadsColonist</li>
+	<li>AllowHeadsStranger</li>
+</value>
+</Operation>
+
 </Patch>
