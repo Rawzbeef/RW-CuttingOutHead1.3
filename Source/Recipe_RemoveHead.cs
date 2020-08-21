@@ -43,29 +43,5 @@ namespace RWBeheading
                 ReportViolation(pawn, billDoer, pawn.FactionOrExtraMiniOrHomeFaction, -70, "GoodwillChangedReason_RemovedBodyPart".Translate(part.LabelShort));
             }
         }
-
-        public override string GetLabelWhenUsedOn(Pawn pawn, BodyPartRecord part)
-        {
-            if (pawn.RaceProps.IsMechanoid || pawn.health.hediffSet.PartOrAnyAncestorHasDirectlyAddedParts(part))
-            {
-                return RecipeDefOf.RemoveBodyPart.label;
-            }
-
-            switch (HealthUtility.PartRemovalIntent(pawn, part))
-            {
-                case BodyPartRemovalIntent.Amputate:
-                    if (part.depth == BodyPartDepth.Inside || part.def.socketed)
-                    {
-                        return "RemoveOrgan".Translate();
-                    }
-                    return "Amputate".Translate();
-
-                case BodyPartRemovalIntent.Harvest:
-                    return "HarvestOrgan".Translate();
-
-                default:
-                    throw new InvalidOperationException();
-            }
-        }
     }
 }
