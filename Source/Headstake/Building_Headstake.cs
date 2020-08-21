@@ -10,7 +10,7 @@ using HarmonyLib;
 
 namespace RWBeheading
 {
-    public class Building_Headstake : Building_Casket, IStoreSettingsParent, IHaulDestination, IThoughtGiver, IHeadDataContainer
+    public class Building_Headstake : Building_Casket, IStoreSettingsParent, IHaulDestination, IHeadDataContainer, IThoughtGiver
     {
         private StorageSettings storageSettings;
         public bool HasFull => Head != null;
@@ -38,19 +38,7 @@ namespace RWBeheading
                 return !HasFull;
             }
         }
-
-        public Thought_Memory GiveObservedThought()
-        {
-            if (!HasFull)
-            {
-                return null;
-            }
-
-            Thought_MemoryObservation thought_MemoryObservation = (Thought_MemoryObservation)ThoughtMaker.MakeThought(BHDefOf.BH_Fearful);
-            thought_MemoryObservation.Target = this;
-            return thought_MemoryObservation;
-        }
-
+        
         public StorageSettings GetStoreSettings()
         {
             return storageSettings;
@@ -61,6 +49,55 @@ namespace RWBeheading
             return def.building.fixedStorageSettings;
         }
 
+        public override void TickLong()
+        {
+            if (Head == null)
+            {
+                return;
+            }
+
+            BHModSettings modSettings = BHModSettings.GetGlobalSettings();
+            float r = modSettings.headstakeFearRange * modSettings.headstakeFearRange;
+            for (int i = 0; (float)i < r; i++)
+            {
+                IntVec3 intVec = Position + GenRadial.RadialPattern[i];
+                if (!intVec.InBounds(Map) || !GenSight.LineOfSight(intVec, Position, Map, true))
+                {
+                    continue;
+                }
+
+                Pawn pawn = intVec.GetFirstPawn(Map);
+                if (pawn != null)
+                {
+                    if (pawn.health == null || !pawn.health.capacities.CapableOf(PawnCapacityDefOf.Sight))
+                    {
+                        continue;
+                    }
+
+                    if (pawn.IsColonist)
+                    {
+                        continue;
+                    }
+
+                    if (BHUtility.CheckPawnCanBeFeared(pawn))
+                    {
+                        continue;
+                    }
+
+                    float chance = modSettings.headstakeFearChance;
+                    if (modSettings.headstakeFearChanceDoubledIfSameRace && pawn.def.defName == Head.GetInnerHeadData().ThingDefName)
+                    {
+                        chance *= 2.0f;
+                    }
+
+                    if (Rand.Chance(chance))
+                    {
+                        pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.PanicFlee, null);
+                    }
+                }
+            }
+        }
+
         public override void PostMake()
         {
             base.PostMake();
@@ -68,6 +105,15 @@ namespace RWBeheading
             if (def.building.defaultStorageSettings != null)
             {
                 storageSettings.CopyFrom(def.building.defaultStorageSettings);
+            }
+        }
+
+        public override void DrawExtraSelectionOverlays()
+        {
+            BHModSettings settings = BHModSettings.GetGlobalSettings();
+            if (settings.headstakeFearRange > 0f)
+            {
+                GenDraw.DrawRadiusRing(Position, settings.headstakeFearRange);
             }
         }
 
@@ -166,6 +212,16 @@ namespace RWBeheading
         public void SetHeadData(HumanlikeHeadData data)
         {
             CustomLogger.Error("[Beheading] Can't set head data to this.", 153487312);
+        }
+
+        public Thought_Memory GiveObservedThought()
+        {
+            if (Head == null)
+            {
+                return null;
+            }
+
+            return Head.GiveObservedThought();
         }
     }
 }

@@ -61,8 +61,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\ModConfigs.cs" />
     <Compile Include="CustomLogger.cs" />
     <Compile Include="HeadShell\HeadShell.cs" />
+    <Compile Include="Headstake\PlaceWorker_ShowHeadsteakRadius.cs" />
     <Compile Include="IHeadDataContainer.cs" />
     <Compile Include="Internal\Base64Texture.cs" />
     <Compile Include="HumanlikeHead.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="HeadRenderer\HeadCameraManager.cs" />
     <Compile Include="HeadRenderer\HeadRenderer.cs" />
     <Compile Include="HeadShell\Projectile_Head.cs" />
+    <Compile Include="Internal\Utility.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recipe_RemoveHead.cs" />
     <Compile Include="SpecialThingFilterWorkers.cs" />

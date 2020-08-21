@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Reflection;
+using System.Reflection.Emit;
 using Verse;
+using HarmonyLib;
 
 namespace RWBeheading
 {

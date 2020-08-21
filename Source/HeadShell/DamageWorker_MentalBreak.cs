@@ -13,20 +13,16 @@ namespace RWBeheading
         public override DamageResult Apply(DamageInfo dinfo, Thing victim)
         {
             Pawn pawn = victim as Pawn;
-            if (pawn != null && pawn.RaceProps != null && pawn.RaceProps.Humanlike)
+
+            if (BHUtility.CheckPawnCanBeFeared(pawn))
             {
-                if (!pawn.story.traits.HasTrait(TraitDefOf.Psychopath) &&
-                    !pawn.story.traits.HasTrait(TraitDefOf.Bloodlust) &&
-                    !pawn.story.traits.HasTrait(TraitDefOf.Cannibal))
+                if (Rand.Bool)
                 {
-                    if (Rand.Bool)
-                    {
-                        pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.Berserk, null);
-                    }
-                    else
-                    {
-                        pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.PanicFlee, null);
-                    }
+                    pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.Berserk, null);
+                }
+                else
+                {
+                    pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.PanicFlee, null);
                 }
             }
 

@@ -24,7 +24,7 @@
     <altitudeLayer>Building</altitudeLayer>
     <rotatable>false</rotatable>
     <size>(1,2)</size>
-    <tickerType>Rare</tickerType>
+    <tickerType>Long</tickerType>
     <canOverlapZones>false</canOverlapZones>
     <designationCategory>Misc</designationCategory>
     <passability>PassThroughOnly</passability>
@@ -55,10 +55,11 @@
       <li Class="RWBeheading.CompProperties_HeadDrawer">
         <drawOffset>(0, 0.27)</drawOffset>
         <altitudeLayer>BuildingOnTop</altitudeLayer>
-        <rotationRange>(-10, 10)</rotationRange>
+        <rotationRange>(-15, 15)</rotationRange>
       </li>
     </comps>
     <placeWorkers>
+      <li>RWBeheading.PlaceWorker_ShowHeadsteakRadius</li>
     </placeWorkers>
   </ThingDef>
   

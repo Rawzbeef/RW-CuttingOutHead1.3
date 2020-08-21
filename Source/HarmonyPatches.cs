@@ -53,7 +53,7 @@ namespace RWBeheading
 
             harmony.Patch(AccessTools.Method(typeof(Projectile), "Launch", new Type[] { typeof(Thing), typeof(Vector3), typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(ProjectileHitFlags), typeof(Thing), typeof(ThingDef) }),
                 prefix: new HarmonyMethod(typeof(HarmonyPatches), nameof(Projectile_Launch_Prefix)));
-
+            
             Log.Message("[Beheading] Harmony patches are succeeded.");
         }
 
@@ -74,7 +74,7 @@ namespace RWBeheading
             
             if (dinfo.Def == null || dinfo.Def == DamageDefOf.Bomb)
             {
-                CustomLogger.Dev("Generate head thing: {0} {1}, dinfo not adapt", ___pawn.Name, ___pawn.def.defName);
+                CustomLogger.Dev("Generate head thing: {0} {1} {2}, dinfo not adapt", ___pawn.Name, ___pawn.def.defName, dinfo.Def != null ? dinfo.Def.defName : null);
                 return true;
             }
 
