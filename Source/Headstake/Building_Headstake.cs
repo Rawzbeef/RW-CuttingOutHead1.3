@@ -85,7 +85,7 @@ namespace RWBeheading
                     }
 
                     float chance = modSettings.headstakeFearChance;
-                    if (modSettings.headstakeFearChanceDoubledIfSameRace && pawn.def.defName == Head.GetInnerHeadData().ThingDefName)
+                    if (modSettings.headstakeFearChanceDoubledIfSameFaction && pawn.Faction != null && pawn.Faction.def.defName == Head.GetInnerHeadData().FactionDefName)
                     {
                         chance *= 2.0f;
                     }

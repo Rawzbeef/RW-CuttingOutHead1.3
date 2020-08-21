@@ -26,20 +26,20 @@ namespace RWBeheading
         {
             headstakeFearRange = 8.0f;
             headstakeFearChance = 0.02f;
-            headstakeFearChanceDoubledIfSameRace = true;
+            headstakeFearChanceDoubledIfSameFaction = true;
         }
 
         public override void ExposeData()
         {
             Scribe_Values.Look(ref headstakeFearRange, "headstakeFearRange");
             Scribe_Values.Look(ref headstakeFearChance, "headstakeFearChance");
-            Scribe_Values.Look(ref headstakeFearChanceDoubledIfSameRace, "headstakeFearChanceDoubledIfSameRace");
+            Scribe_Values.Look(ref headstakeFearChanceDoubledIfSameFaction, "headstakeFearChanceDoubledIfSameFaction");
             base.ExposeData();
         }
 
         public float headstakeFearRange;
         public float headstakeFearChance;
-        public bool headstakeFearChanceDoubledIfSameRace;
+        public bool headstakeFearChanceDoubledIfSameFaction;
         private static BHModSettings _modSettings = null;
     }
 
@@ -66,8 +66,8 @@ namespace RWBeheading
             listing.Label("BH_Config_Headstake_Fear_Chance".Translate());
             _settings.headstakeFearChance = Widgets.HorizontalSlider(listing.GetRect(22f), _settings.headstakeFearChance, 0f, 1f, false, rightAlignedLabel: string.Format("{0:f2}", _settings.headstakeFearChance));
 
-            listing.Label("BH_Config_Headstake_Fear_Chance_Doubled_Same_Race".Translate());
-            Widgets.CheckboxLabeled(listing.GetRect(22f), "", ref _settings.headstakeFearChanceDoubledIfSameRace);
+            listing.Label("BH_Config_Headstake_Fear_Chance_Doubled_Same_Faction".Translate());
+            Widgets.CheckboxLabeled(listing.GetRect(22f), "", ref _settings.headstakeFearChanceDoubledIfSameFaction);
 
             listing.End();
             base.DoSettingsWindowContents(inRect);

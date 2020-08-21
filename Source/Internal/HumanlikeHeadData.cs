@@ -15,6 +15,14 @@ namespace RWBeheading
 
         public string ThingDefName => _pawnThingDefName;
 
+        public string FactionDefName
+        {
+            get
+            {
+                return _pawnFactionDefName;
+            }
+        }
+
         public RotStage RotStage
         {
             get
@@ -88,6 +96,7 @@ namespace RWBeheading
             Scribe_Values.Look(ref _pawnThingID, "pawnThingID");
 
             Scribe_Values.Look(ref _pawnThingDefName, "pawnThingDefName");
+            Scribe_Values.Look(ref _pawnFactionDefName, "pawnFactionDefName");
             Scribe_Values.Look(ref _pawnRotStage, "pawnRotStage");
 
             Scribe_Deep.Look(ref _texFresh, "fleshTex");
@@ -103,6 +112,7 @@ namespace RWBeheading
         {
             _pawnThingID = pawn.ThingID;
             _pawnThingDefName = pawn.def.defName;
+            _pawnFactionDefName = pawn.Faction != null ? pawn.Faction.def.defName : null;
             _pawnRotStage = RotStage.Fresh;
 
             _texFresh = GenerateHeadTexture(pawn, RotDrawMode.Fresh);
@@ -164,6 +174,7 @@ namespace RWBeheading
 
         private string _pawnThingID = null;
         private string _pawnThingDefName = null;
+        private string _pawnFactionDefName = null;
         private RotStage _pawnRotStage = RotStage.Fresh;
 
         private Base64Texture _texFresh;

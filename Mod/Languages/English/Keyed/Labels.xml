@@ -7,5 +7,5 @@
     <BH_Config_SetDefaults>Restore to Defaults</BH_Config_SetDefaults>
     <BH_Config_Headstake_Fear_Range>Headstake fear affect range</BH_Config_Headstake_Fear_Range>
     <BH_Config_Headstake_Fear_Chance>Headstake fear chance</BH_Config_Headstake_Fear_Chance>
-    <BH_Config_Headstake_Fear_Chance_Doubled_Same_Race>Headstake fear chance doubled if observer has same race</BH_Config_Headstake_Fear_Chance_Doubled_Same_Race>
+    <BH_Config_Headstake_Fear_Chance_Doubled_Same_Faction>Headstake fear chance doubled if observer has same faction</BH_Config_Headstake_Fear_Chance_Doubled_Same_Faction>
 </LanguageData>
