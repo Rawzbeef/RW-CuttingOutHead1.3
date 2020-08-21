@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RWBeheading
 {
-    interface IHeadDataContainer
+    public interface IHeadDataContainer
     {
         HumanlikeHeadData GetInnerHeadData();
         void SetHeadData(HumanlikeHeadData data);
