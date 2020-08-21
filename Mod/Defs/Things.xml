@@ -53,7 +53,7 @@
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <comps>
       <li Class="RWBeheading.CompProperties_HeadDrawer">
-        <drawOffset>(0, 0.27)</drawOffset>
+        <drawOffset>(0, 0.3)</drawOffset>
         <altitudeLayer>BuildingOnTop</altitudeLayer>
         <rotationRange>(-15, 15)</rotationRange>
       </li>
