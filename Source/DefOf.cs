@@ -13,7 +13,5 @@ namespace RWBeheading
     public static class BHDefOf
     {
         public static ThingCategoryDef HeadsHumanlike;
-
-        public static ThoughtDef BH_Fearful;
     }
 }
