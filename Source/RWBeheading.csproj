@@ -68,8 +68,8 @@
     <Compile Include="HumanlikeHead.cs" />
     <Compile Include="Headstake\Building_Headstake.cs" />
     <Compile Include="HeadShell\CompHeadDataContainer.cs" />
-    <Compile Include="Headstake\CompProperties_HeadAssignable.cs" />
-    <Compile Include="Headstake\CompHeadAssignable.cs" />
+    <Compile Include="Headstake\CompProperties_HeadDrawer.cs" />
+    <Compile Include="Headstake\CompHeadDrawer.cs" />
     <Compile Include="HeadShell\CompProperties_HeadDataContainer.cs" />
     <Compile Include="DefOf.cs" />
     <Compile Include="Graphic_Head.cs" />
