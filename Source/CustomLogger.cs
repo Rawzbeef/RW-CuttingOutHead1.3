@@ -29,7 +29,7 @@ namespace RWBeheading
 #if DEBUG
             Log.Error(string.Format("[Beheading] Exception: " + e));
 #else
-            Log.Warning(string.Format("[Beheading] " + msg, args));
+            Log.Warning(string.Format("[Beheading] Exception: " + e));
 #endif
         }
 
