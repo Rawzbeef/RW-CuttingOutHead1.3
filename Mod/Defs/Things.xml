@@ -21,6 +21,7 @@
       <Flammability>1.0</Flammability>
       <Beauty>-50</Beauty>
     </statBases>
+    <useHitPoints>true</useHitPoints>
     <altitudeLayer>Building</altitudeLayer>
     <rotatable>false</rotatable>
     <size>(1,2)</size>
@@ -29,6 +30,7 @@
     <designationCategory>Security</designationCategory>
     <passability>PassThroughOnly</passability>
     <building>
+      <isTrap>true</isTrap>
       <expandHomeArea>false</expandHomeArea>
       <haulToContainerDuration>300</haulToContainerDuration>
       <fixedStorageSettings>

@@ -24,8 +24,8 @@ namespace RWBeheading
 
         public void ResetToDefault()
         {
-            headstakeFearRange = 8.0f;
-            headstakeFearChance = 0.02f;
+            headstakeFearRange = 10.0f;
+            headstakeFearChance = 0.04f;
             headstakeFearChanceDoubledIfSameFaction = true;
         }
 
