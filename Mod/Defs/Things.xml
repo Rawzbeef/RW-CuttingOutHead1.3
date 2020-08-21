@@ -52,8 +52,10 @@
     </inspectorTabs>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <comps>
-      <li Class="RWBeheading.CompProperties_HeadAssignable">
-        <compClass>RWBeheading.CompHeadAssignable</compClass>
+      <li Class="RWBeheading.CompProperties_HeadDrawer">
+        <drawOffset>(0, 0.27)</drawOffset>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <rotationRange>(-10, 10)</rotationRange>
       </li>
     </comps>
     <placeWorkers>
@@ -67,8 +69,9 @@
     <label>head shell</label>
     <description>A shell attached with head. Head shell don't gives physical damage and has low accuracy, but makes victim mental break. Can be fired from mortars.</description>
     <graphicData>
-      <graphicClass>RWBeheading.Graphic_Head</graphicClass>
-      <texPath>Things/HeadDummy</texPath>
+      <texPath>Things/Headshell</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.5,1.5)</drawSize>
     </graphicData>
     <statBases>
       <MarketValue>30</MarketValue>
@@ -76,6 +79,11 @@
     <tradeability>None</tradeability>
     <stackLimit>1</stackLimit>
     <comps>
+      <li Class="RWBeheading.CompProperties_HeadDrawer">
+        <drawOffset>(0, 0)</drawOffset>
+        <altitudeSemiOffset>0.001</altitudeSemiOffset>
+        <rotationRange>(45, 45)</rotationRange>
+      </li>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>2</explosiveRadius>
         <explosiveDamageType>Panic</explosiveDamageType>
@@ -124,8 +132,9 @@
     <label>powerful head shell</label>
     <description>A shell attached with head. Head shell don't gives physical damage and has low accuracy, but makes victim mental break. Can be fired from mortars.</description>
     <graphicData>
-      <graphicClass>RWBeheading.Graphic_Head</graphicClass>
-      <texPath>Things/HeadDummy</texPath>
+      <texPath>Things/Powerheadshell</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.5,1.5)</drawSize>
     </graphicData>
     <statBases>
       <MarketValue>1200</MarketValue>
@@ -133,6 +142,11 @@
     <tradeability>None</tradeability>
     <stackLimit>1</stackLimit>
     <comps>
+      <li Class="RWBeheading.CompProperties_HeadDrawer">
+        <drawOffset>(0, 0)</drawOffset>
+        <altitudeSemiOffset>0.001</altitudeSemiOffset>
+        <rotationRange>(45, 45)</rotationRange>
+      </li>
       <li Class="CompProperties_Explosive">
         <explosiveRadius>9</explosiveRadius>
         <explosiveDamageType>Panic</explosiveDamageType>
