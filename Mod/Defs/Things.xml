@@ -17,7 +17,7 @@
     <costStuffCount>30</costStuffCount>
     <statBases>
       <MaxHitPoints>70</MaxHitPoints>
-      <WorkToBuild>40</WorkToBuild>
+      <WorkToBuild>600</WorkToBuild>
       <Flammability>1.0</Flammability>
       <Beauty>-50</Beauty>
     </statBases>
@@ -26,7 +26,7 @@
     <size>(1,2)</size>
     <tickerType>Long</tickerType>
     <canOverlapZones>false</canOverlapZones>
-    <designationCategory>Misc</designationCategory>
+    <designationCategory>Security</designationCategory>
     <passability>PassThroughOnly</passability>
     <building>
       <expandHomeArea>false</expandHomeArea>
@@ -188,4 +188,68 @@
       <explosionEffect>ExtinguisherExplosion</explosionEffect>
     </projectile>
   </ThingDef>
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>HeadTrophy</defName>
+    <label>head trophy</label>
+    <description>A trophy with someone's head. It looks similar ordinary sculpture. It also prevents head is rotting.</description>
+    <thingClass>RWBeheading.Building_HeadTrophy</thingClass>
+    <graphicData>
+      <texPath>Things/HeadTrophy</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <stuffCategories>
+      <li>Stony</li>
+      <li>Metallic</li>
+    </stuffCategories>
+    <costStuffCount>40</costStuffCount>
+    <statBases>
+      <MaxHitPoints>90</MaxHitPoints>
+      <WorkToBuild>3000</WorkToBuild>
+      <Flammability>1.0</Flammability>
+			<Mass>3</Mass>
+      <Beauty>1</Beauty>
+    </statBases>
+    <useHitPoints>true</useHitPoints>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <rotatable>false</rotatable>
+    <size>(1,1)</size>
+    <canOverlapZones>false</canOverlapZones>
+    <designationCategory>Misc</designationCategory>
+		<passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <building>
+      <haulToContainerDuration>300</haulToContainerDuration>
+      <fixedStorageSettings>
+        <filter>
+          <categories>
+            <li>HeadsHumanlike</li>
+          </categories>
+        </filter>
+      </fixedStorageSettings>
+      <defaultStorageSettings>
+        <priority>Important</priority>
+        <filter>
+          <categories>
+            <li>HeadsHumanlike</li>
+          </categories>
+        </filter>
+      </defaultStorageSettings>
+    </building>
+    <inspectorTabs>
+      <li>ITab_Storage</li>
+    </inspectorTabs>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <comps>
+      <li Class="RWBeheading.CompProperties_HeadDrawer">
+        <drawOffset>(0, 0.25)</drawOffset>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <altitudeSemiOffset>0.01</altitudeSemiOffset>
+        <rotationRange>(0, 0)</rotationRange>
+      </li>
+    </comps>
+    <placeWorkers>
+    </placeWorkers>
+  </ThingDef>
+  
 </Defs>

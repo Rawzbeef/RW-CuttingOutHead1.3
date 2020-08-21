@@ -5,7 +5,7 @@ using RimWorld;
 
 namespace RWBeheading
 {
-    public class Building_Headstake : Building_Casket, IStoreSettingsParent, IHaulDestination, IHeadDataContainer, IThoughtGiver
+    public class Building_HeadTrophy : Building_Casket, IStoreSettingsParent, IHaulDestination, IHeadDataContainer
     {
         private StorageSettings storageSettings;
         public bool HasFull => Head != null;
@@ -33,7 +33,7 @@ namespace RWBeheading
                 return !HasFull;
             }
         }
-        
+
         public StorageSettings GetStoreSettings()
         {
             return storageSettings;
@@ -43,56 +43,7 @@ namespace RWBeheading
         {
             return def.building.fixedStorageSettings;
         }
-
-        public override void TickLong()
-        {
-            if (Head == null)
-            {
-                return;
-            }
-
-            BHModSettings modSettings = BHModSettings.GetGlobalSettings();
-            float r = modSettings.headstakeFearRange * modSettings.headstakeFearRange;
-            for (int i = 0; (float)i < r; i++)
-            {
-                IntVec3 intVec = Position + GenRadial.RadialPattern[i];
-                if (!intVec.InBounds(Map) || !GenSight.LineOfSight(intVec, Position, Map, true))
-                {
-                    continue;
-                }
-
-                Pawn pawn = intVec.GetFirstPawn(Map);
-                if (pawn != null)
-                {
-                    if (pawn.health == null || !pawn.health.capacities.CapableOf(PawnCapacityDefOf.Sight))
-                    {
-                        continue;
-                    }
-
-                    if (pawn.IsColonist)
-                    {
-                        continue;
-                    }
-
-                    if (BHUtility.CheckPawnCanBeFeared(pawn))
-                    {
-                        continue;
-                    }
-
-                    float chance = modSettings.headstakeFearChance;
-                    if (modSettings.headstakeFearChanceDoubledIfSameFaction && pawn.Faction != null && pawn.Faction.def.defName == Head.GetInnerHeadData().FactionDefName)
-                    {
-                        chance *= 2.0f;
-                    }
-
-                    if (Rand.Chance(chance))
-                    {
-                        pawn.mindState.mentalStateHandler.TryStartMentalState(MentalStateDefOf.PanicFlee, null);
-                    }
-                }
-            }
-        }
-
+        
         public override void PostMake()
         {
             base.PostMake();
@@ -102,16 +53,7 @@ namespace RWBeheading
                 storageSettings.CopyFrom(def.building.defaultStorageSettings);
             }
         }
-
-        public override void DrawExtraSelectionOverlays()
-        {
-            BHModSettings settings = BHModSettings.GetGlobalSettings();
-            if (settings.headstakeFearRange > 0f)
-            {
-                GenDraw.DrawRadiusRing(Position, settings.headstakeFearRange);
-            }
-        }
-
+        
         public override void ExposeData()
         {
             base.ExposeData();
@@ -181,7 +123,7 @@ namespace RWBeheading
 
             return false;
         }
-        
+
         public override string GetInspectString()
         {
             StringBuilder stringBuilder = new StringBuilder();
@@ -207,16 +149,6 @@ namespace RWBeheading
         public void SetHeadData(HumanlikeHeadData data)
         {
             CustomLogger.Error("[Beheading] Can't set head data to this.", 153487312);
-        }
-
-        public Thought_Memory GiveObservedThought()
-        {
-            if (Head == null)
-            {
-                return null;
-            }
-
-            return Head.GiveObservedThought();
         }
     }
 }
