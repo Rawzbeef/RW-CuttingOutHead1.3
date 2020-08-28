@@ -61,7 +61,7 @@ namespace RWBeheading
                     thingDef.alwaysHaulable = true;
                     thingDef.soundPickup = SoundDefOf.Corpse_Drop;
                     thingDef.soundDrop = SoundDefOf.Corpse_Drop;
-                    thingDef.pathCost = DefGenerator.StandardItemPathCost;
+                    thingDef.pathCost = 15;
                     thingDef.socialPropernessMatters = false;
                     thingDef.tradeability = Tradeability.None;
                     thingDef.messageOnDeteriorateInStorage = false;

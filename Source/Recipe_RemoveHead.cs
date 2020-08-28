@@ -40,7 +40,12 @@ namespace RWBeheading
             }
             if (flag2)
             {
-                ReportViolation(pawn, billDoer, pawn.FactionOrExtraMiniOrHomeFaction, -70, "GoodwillChangedReason_RemovedBodyPart".Translate(part.LabelShort));
+                Faction faction = pawn.Faction;
+                if (faction != null && faction.IsPlayer)
+                {
+                    faction = pawn.GetExtraHomeFaction() ?? faction;
+                }
+                ReportViolation(pawn, billDoer, faction, -70, "GoodwillChangedReason_RemovedBodyPart".Translate(part.LabelShort));
             }
         }
     }

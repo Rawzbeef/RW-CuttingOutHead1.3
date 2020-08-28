@@ -74,7 +74,7 @@ namespace RWBeheading
                         continue;
                     }
 
-                    if (BHUtility.CheckPawnCanBeFeared(pawn))
+                    if (!BHUtility.CheckPawnCanBeFeared(pawn))
                     {
                         continue;
                     }

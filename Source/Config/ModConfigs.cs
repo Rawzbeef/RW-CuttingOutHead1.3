@@ -69,6 +69,8 @@ namespace RWBeheading
             listing.Label("BH_Config_Headstake_Fear_Chance_Doubled_Same_Faction".Translate());
             Widgets.CheckboxLabeled(listing.GetRect(22f), "", ref _settings.headstakeFearChanceDoubledIfSameFaction);
 
+            listing.GapLine();
+
             listing.End();
             base.DoSettingsWindowContents(inRect);
         }
