@@ -24,7 +24,10 @@ namespace RWBeheading
 
         static HarmonyPatches()
         {
-            Harmony harmony = new Harmony("rimworld.gguake.beheading");
+            Harmony.DEBUG = true;
+
+            Harmony harmony = new Harmony("rimworld.rawzbeef.beheading");
+            
 
             harmony.Patch(AccessTools.Method(typeof(Hediff_MissingPart), "PostAdd"),
                 prefix: new HarmonyMethod(typeof(HarmonyPatches), nameof(Hediff_MissingPart_PostAdd_Prefix)));
@@ -51,7 +54,7 @@ namespace RWBeheading
                 postfix: new HarmonyMethod(typeof(HarmonyPatches), nameof(CompChangeableProjectile_RemoveShell_Postfix)));
 
 
-            harmony.Patch(AccessTools.Method(typeof(Projectile), "Launch", new Type[] { typeof(Thing), typeof(Vector3), typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(ProjectileHitFlags), typeof(Thing), typeof(ThingDef) }),
+            harmony.Patch(AccessTools.Method(typeof(Projectile), "Launch", new Type[] { typeof(Thing), typeof(Vector3), typeof(LocalTargetInfo), typeof(LocalTargetInfo), typeof(ProjectileHitFlags), typeof(bool), typeof(Thing), typeof(ThingDef) }),
                 prefix: new HarmonyMethod(typeof(HarmonyPatches), nameof(Projectile_Launch_Prefix)));
             
             Log.Message("[Beheading] Harmony patches are succeeded.");

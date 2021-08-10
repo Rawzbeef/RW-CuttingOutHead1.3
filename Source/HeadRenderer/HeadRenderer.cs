@@ -50,11 +50,8 @@ namespace RWBeheading
                     0f,
                     false,
                     Rot4.South,
-                    Rot4.South,
                     drawMode,
-                    true,
-                    false,
-                    false
+                    PawnRenderFlags.DrawNow
                 });
             }
             catch (Exception e)
@@ -68,7 +65,7 @@ namespace RWBeheading
         private Pawn pawn = null;
         private RotDrawMode drawMode = RotDrawMode.Fresh;
 
-        private static MethodInfo methodRenderPawnInternal = AccessTools.Method(typeof(PawnRenderer), "RenderPawnInternal", parameters: new Type[] { typeof(Vector3), typeof(float), typeof(bool), typeof(Rot4), typeof(Rot4), typeof(RotDrawMode), typeof(bool), typeof(bool), typeof(bool) });
+        private static MethodInfo methodRenderPawnInternal = AccessTools.Method(typeof(PawnRenderer), "RenderPawnInternal", parameters: new Type[] { typeof(Vector3), typeof(float), typeof(bool), typeof(Rot4), typeof(RotDrawMode), typeof(PawnRenderFlags)});
 
         private static FieldInfo fieldDamageFlasherTick = AccessTools.Field(typeof(DamageFlasher), "lastDamageTick");
     }

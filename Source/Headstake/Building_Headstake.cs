@@ -5,7 +5,7 @@ using RimWorld;
 
 namespace RWBeheading
 {
-    public class Building_Headstake : Building_Casket, IStoreSettingsParent, IHaulDestination, IHeadDataContainer, IThoughtGiver
+    public class Building_Headstake : Building_Casket, IStoreSettingsParent, IHaulDestination, IHeadDataContainer
     {
         private StorageSettings storageSettings;
         public bool HasFull => Head != null;
@@ -209,14 +209,13 @@ namespace RWBeheading
             CustomLogger.Error("[Beheading] Can't set head data to this.", 153487312);
         }
 
-        public Thought_Memory GiveObservedThought()
+        public HistoryEventDef GiveObservedHistoryEvent(Pawn observer)
         {
             if (Head == null)
             {
                 return null;
             }
-
-            return Head.GiveObservedThought();
+            return Head.GiveObservedHistoryEvent(observer);
         }
     }
 }

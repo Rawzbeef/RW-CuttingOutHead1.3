@@ -34,9 +34,13 @@ namespace RWBeheading
             {
                 if (pawn.Dead)
                 {
-                    ThoughtUtility.GiveThoughtsForPawnExecuted(pawn, PawnExecutionKind.OrganHarvesting);
+                    ThoughtUtility.GiveThoughtsForPawnExecuted(pawn, billDoer, PawnExecutionKind.OrganHarvesting);
                 }
-                ThoughtUtility.GiveThoughtsForPawnOrganHarvested(pawn);
+                if (pawn.needs != null)
+                {
+                    ThoughtUtility.GiveThoughtsForPawnOrganHarvested(pawn, billDoer);
+                }
+                
             }
             if (flag2)
             {
@@ -45,7 +49,8 @@ namespace RWBeheading
                 {
                     faction = pawn.GetExtraHomeFaction() ?? faction;
                 }
-                ReportViolation(pawn, billDoer, faction, -70, "GoodwillChangedReason_RemovedBodyPart".Translate(part.LabelShort));
+                ReportViolation(pawn, billDoer, faction, -70);
+                //-rbchange ReportViolation(pawn, billDoer, faction, -70, "GoodwillChangedReason_RemovedBodyPart".Translate(part.LabelShort));
             }
         }
     }

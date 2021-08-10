@@ -9,7 +9,7 @@ using RimWorld;
 
 namespace RWBeheading
 {
-    public class HumanlikeHead : ThingWithComps, IThoughtGiver, IHeadDataContainer
+    public class HumanlikeHead : ThingWithComps, IHeadDataContainer
     {
         public HumanlikeHead()
         {
@@ -65,16 +65,17 @@ namespace RWBeheading
             }
         }
 
-        public Thought_Memory GiveObservedThought()
+        public HistoryEventDef GiveObservedHistoryEvent(Pawn observer)
         {
-            if (this.StoringThing() == null)
+            if (this.StoringThing() != null)
             {
-                Thought_MemoryObservation thought_MemoryObservation = (!this.IsNotFresh()) ? ((Thought_MemoryObservation)ThoughtMaker.MakeThought(ThoughtDefOf.ObservedLayingCorpse)) : ((Thought_MemoryObservation)ThoughtMaker.MakeThought(ThoughtDefOf.ObservedLayingRottingCorpse));
-                thought_MemoryObservation.Target = this;
-                return thought_MemoryObservation;
+                return null;
             }
-
-            return null;
+            if (this.IsNotFresh())
+            {
+                return HistoryEventDefOf.ObservedLayingRottingCorpse;
+            }
+            return HistoryEventDefOf.ObservedLayingCorpse;
         }
 
         public HumanlikeHeadData GetInnerHeadData()

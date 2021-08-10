@@ -69,7 +69,7 @@ namespace RWBeheading
                     thingDef.comps.Add(new CompProperties_Forbiddable());
                     thingDef.recipes = new List<RecipeDef>();
                     thingDef.shortHash = (ushort)(td.shortHash ^ 12312);
-                    thingDef.menuHidden = false;
+                    //-rbchange thingDef.menuHidden = false;
 
                     thingDef.defName = GetDefName(td);
                     thingDef.label = "BH_HeadLabel".Translate(td.label);
