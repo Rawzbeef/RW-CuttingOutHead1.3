@@ -24,8 +24,6 @@ namespace RWBeheading
 
         static HarmonyPatches()
         {
-            Harmony.DEBUG = true;
-
             Harmony harmony = new Harmony("rimworld.rawzbeef.beheading");
             
 

@@ -6,6 +6,7 @@
     <label>head stake</label>
     <description>A horrible someone's head on a stake. Make near persons fearful.</description>
     <thingClass>RWBeheading.Building_Headstake</thingClass>
+	<drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
       <texPath>Things/Headstake</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -69,6 +70,7 @@
   <ThingDef ParentName="ShellBase">
     <defName>Shell_Head</defName>
     <thingClass>RWBeheading.HeadShell</thingClass>
+	<drawerType>MapMeshAndRealTime</drawerType>
     <label>head shell</label>
     <description>A shell attached with head. Head shell don't gives physical damage and has low accuracy, but makes victim mental break. Can be fired from mortars.</description>
     <graphicData>
@@ -132,6 +134,7 @@
   <ThingDef ParentName="ShellBase">
     <defName>Powerful_Shell_Head</defName>
     <thingClass>RWBeheading.HeadShell</thingClass>
+	<drawerType>MapMeshAndRealTime</drawerType>
     <label>powerful head shell</label>
     <description>A shell attached with head. Head shell don't gives physical damage and has low accuracy, but makes victim mental break. Can be fired from mortars.</description>
     <graphicData>
@@ -196,6 +199,7 @@
     <label>head trophy</label>
     <description>A trophy with someone's head. It looks similar ordinary sculpture. It also prevents head is rotting.</description>
     <thingClass>RWBeheading.Building_HeadTrophy</thingClass>
+	<drawerType>MapMeshAndRealTime</drawerType>
     <graphicData>
       <texPath>Things/HeadTrophy</texPath>
       <graphicClass>Graphic_Single</graphicClass>

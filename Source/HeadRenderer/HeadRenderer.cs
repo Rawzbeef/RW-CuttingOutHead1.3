@@ -43,6 +43,7 @@ namespace RWBeheading
 
         public void OnPostRender()
         {
+            PawnRenderFlags flags = (PawnRenderFlags) 9U;
             try
             {
                 methodRenderPawnInternal.Invoke(pawn.Drawer.renderer, new object[] {
@@ -51,7 +52,7 @@ namespace RWBeheading
                     false,
                     Rot4.South,
                     drawMode,
-                    PawnRenderFlags.DrawNow
+                    flags
                 });
             }
             catch (Exception e)
