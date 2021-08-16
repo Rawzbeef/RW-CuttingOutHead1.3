@@ -144,4 +144,43 @@
     </recipeUsers>
   </RecipeDef>
 
+<RecipeDef>
+    <defName>Extact_Skull</defName>
+    <label>extract a skull</label>
+    <description>remove any imperfection out of an head</description>
+    <jobString>Extracting a skull</jobString>
+    <workAmount>200</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>ButcherFlesh</effectWorking>
+    <soundWorking>Recipe_ButcherCorpseFlesh</soundWorking>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>HeadsHumanlike</li>
+          </categories>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <products>
+      <Skull>1</Skull>
+    </products>
+    <fixedIngredientFilter>
+      <categories>
+        <li>HeadsHumanlike</li>
+      </categories>
+    </fixedIngredientFilter>
+    <defaultIngredientFilter>
+      <categories>
+        <li>HeadsHumanlike</li>
+      </categories>
+    </defaultIngredientFilter>
+    <workSkill>Crafting</workSkill>
+    <recipeUsers>
+        <li>ButcherSpot</li>
+		<li>TableButcher</li>
+    </recipeUsers>
+  </RecipeDef>
+
 </Defs>
