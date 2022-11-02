@@ -217,5 +217,11 @@ namespace RWBeheading
             }
             return Head.GiveObservedHistoryEvent(observer);
         }
+
+        //TODO
+        public void Notify_SettingsChanged()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

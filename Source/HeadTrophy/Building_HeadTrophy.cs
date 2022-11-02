@@ -150,5 +150,11 @@ namespace RWBeheading
         {
             CustomLogger.Error("[Beheading] Can't set head data to this.", 153487312);
         }
+
+        //TODO
+        public void Notify_SettingsChanged()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
