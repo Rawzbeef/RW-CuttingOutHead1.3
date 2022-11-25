@@ -221,7 +221,6 @@ namespace RWBeheading
         //TODO
         public void Notify_SettingsChanged()
         {
-            throw new System.NotImplementedException();
         }
     }
 }
